@@ -21,12 +21,19 @@ class Series(Movie):
         self.num_season = num_season
     
     def __str__(self):
-        return f'{self.title} {"S{:02d}".format(self.num_season)} {"E{:02d}".format(self.num_episode)}'
+        return f'{self.title} S{self.num_season:02d} E{self.num_episode:02d}'
     
-    
-def get_movies_series(lib_type):
-    lib_m_s_only = [i for i in lib_m_s_only if type(i) == lib_type]
-    return sorted(lib_m_s_only, key=lambda p: p.title)
+
+def get_movies():
+    lib_mov_only = [i for i in lib_mov if not(isinstance(i, Movie) and isinstance(i, Series))]
+    return sorted(lib_mov_only, key=lambda p: p.title)
+
+def get_series():
+    lib_series_only = [i for i in lib_mov if isinstance(i, Series)]
+    return sorted(lib_series_only, key=lambda p: p.title)    
+
+def get_movies_series(movies_or_series):
+    return movies_or_series                
 
 def search(search_title, library):
     found_title = [i for i in library if search_title == i.title]
@@ -42,8 +49,8 @@ def ten_generate_views():
         generate_views()
 
 def top_titles(num_top):
-    top_list = sorted([i for i in lib_mov if i.num_play > 0], key=lambda q: q.num_play)
-    return top_list[:-num_top-1:-1]
+    top_list = sorted(lib_mov, key=lambda q: q.num_play)
+    return top_list[:-num_top-1:-1]    # Plasterkowanie. Chodzi o to, że bierze z posortowanej rosnąco listy, ostatnich [num_top] elementów i układa je od największego do najmniejszego.
     
 
 if __name__ == "__main__":
@@ -107,5 +114,3 @@ if __name__ == "__main__":
     top = top_titles(3)
     for i in top:
         print(f'{i}: number of plays: {i.num_play}')
-
-   
