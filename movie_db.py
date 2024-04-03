@@ -24,33 +24,32 @@ class Series(Movie):
         return f'{self.title} S{self.num_season:02d} E{self.num_episode:02d}'
     
 
-def get_movies():
-    lib_mov_only = [i for i in lib_mov if not(isinstance(i, Movie) and isinstance(i, Series))]
-    return sorted(lib_mov_only, key=lambda p: p.title)
+def get_movies(lib, onetype=Movie):
+    return get_onetype(lib, onetype)
+    
+def get_series(lib, onetype=Series):
+    return get_onetype(lib, onetype)        
 
-def get_series():
-    lib_series_only = [i for i in lib_mov if isinstance(i, Series)]
-    return sorted(lib_series_only, key=lambda p: p.title)    
+def get_onetype(lib, onetype):
+    lib_only_onetype = [i for i in lib if type(i) == onetype]
+    return sorted(lib_only_onetype, key=lambda p: p.title)              
 
-def get_movies_series(movies_or_series):
-    return movies_or_series                
-
-def search(search_title, library):
-    found_title = [i for i in library if search_title == i.title]
+def search(search_title, lib):
+    found_title = [i for i in lib if search_title == i.title]
     return found_title
 
-def generate_views():
-    rnd_mov = random.choice(lib_mov)
+def generate_views(lib):
+    rnd_mov = random.choice(lib)
     rnd_mov.num_play = random.choice(range(1, 101))
     return rnd_mov.num_play
 
-def ten_generate_views():
+def ten_generate_views(lib):
     for j in range(11):
-        generate_views()
+        generate_views(lib)
 
-def top_titles(num_top):
-    top_list = sorted(lib_mov, key=lambda q: q.num_play)
-    return top_list[:-num_top-1:-1]    # Plasterkowanie. Chodzi o to, że bierze z posortowanej rosnąco listy, ostatnich [num_top] elementów i układa je od największego do najmniejszego.
+def top_titles(lib, num_top=3):
+    top_list = sorted(lib, key=lambda q: q.num_play, reverse=True)
+    return top_list[:num_top]
     
 
 if __name__ == "__main__":
@@ -107,10 +106,12 @@ if __name__ == "__main__":
     for i in lib_mov:
         print(i)
 
-    ten_generate_views()
+    ten_generate_views(lib_mov)
 
     print("\nNajpopularniejsze filmy i seriale dnia", date.today().strftime("%d.%m.%Y"))
 
-    top = top_titles(3)
+    top = top_titles(lib_mov)
     for i in top:
         print(f'{i}: number of plays: {i.num_play}')
+
+    
