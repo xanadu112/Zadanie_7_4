@@ -24,11 +24,11 @@ class Series(Movie):
         return f'{self.title} S{self.num_season:02d} E{self.num_episode:02d}'
     
 
-def get_movies(lib, onetype=Movie):
-    return get_onetype(lib, onetype)
+def get_movies(lib):
+    return get_onetype(lib, Movie)
     
-def get_series(lib, onetype=Series):
-    return get_onetype(lib, onetype)        
+def get_series(lib):
+    return get_onetype(lib, Series)        
 
 def get_onetype(lib, onetype):
     lib_only_onetype = [i for i in lib if type(i) == onetype]
@@ -40,11 +40,10 @@ def search(search_title, lib):
 
 def generate_views(lib):
     rnd_mov = random.choice(lib)
-    rnd_mov.num_play = random.choice(range(1, 101))
-    return rnd_mov.num_play
+    rnd_mov.play(another_play = random.choice(range(1, 101)))
 
 def ten_generate_views(lib):
-    for j in range(11):
+    for j in range(10):
         generate_views(lib)
 
 def top_titles(lib, num_top=3):
