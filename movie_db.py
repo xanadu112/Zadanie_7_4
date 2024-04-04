@@ -100,7 +100,7 @@ if __name__ == "__main__":
     lib_mov = [movie_1, movie_2, movie_3, movie_4, movie_5, movie_6, movie_7, movie_8, movie_9, movie_10, series_1, series_2, series_3, series_4,
               series_5, series_6, series_7, series_8, series_9, series_10, series_11, series_12, series_13, series_14, series_15, series_16,
               series_17, series_18, series_19, series_20, series_21, series_22, series_23, series_24, series_25, series_26, series_27, series_28,
-              series_29, series_30, series_31]
+              series_29, series_30, series_31, series_32]
     
     for i in lib_mov:
         print(i)
