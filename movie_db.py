@@ -88,14 +88,14 @@ if __name__ == "__main__":
     series_22 = Series(title="Knight Rider", year="1983", genre="Action", num_episode=22, num_season=1)
     series_23 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=1, num_season=1)
     series_24 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=2, num_season=1)
-    series_24 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=3, num_season=1)
-    series_25 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=4, num_season=1)
-    series_26 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=5, num_season=1)
-    series_27 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=6, num_season=1)
-    series_28 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=7, num_season=1)
-    series_29 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=8, num_season=1)
-    series_30 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=9, num_season=1)
-    series_31 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=10, num_season=1)
+    series_25 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=3, num_season=1)
+    series_26 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=4, num_season=1)
+    series_27 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=5, num_season=1)
+    series_28 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=6, num_season=1)
+    series_29 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=7, num_season=1)
+    series_30 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=8, num_season=1)
+    series_31 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=9, num_season=1)
+    series_32 = Series(title="Halo", year="2022", genre="Sci-Fi", num_episode=10, num_season=1)
 
     lib_mov = [movie_1, movie_2, movie_3, movie_4, movie_5, movie_6, movie_7, movie_8, movie_9, movie_10, series_1, series_2, series_3, series_4,
               series_5, series_6, series_7, series_8, series_9, series_10, series_11, series_12, series_13, series_14, series_15, series_16,
